@@ -219,6 +219,57 @@ export function DashboardHomePage() {
         description={pageMeta.description}
       />
 
+      <section className="showcase-hero" aria-label="ملخص سريع">
+        <div className="showcase-hero-content">
+          <p className="showcase-hero-eyebrow">منصة تشغيل مركزية</p>
+          <h3 className="showcase-hero-title">
+            أهلاً {user.fullName}، تابع المؤشرات الحية واتخذ القرار أسرع
+          </h3>
+          <p className="showcase-hero-description">
+            كل الأرقام في هذه اللوحة متصلة مباشرة بقاعدة البيانات، مع رؤية فورية لحالة اللاعبين
+            والعقود القريبة من الانتهاء.
+          </p>
+          <div className="showcase-hero-actions">
+            <Link to="/players" className="primary-button">
+              إدارة اللاعبين
+            </Link>
+            <Link to="/contracts" className="secondary-button">
+              متابعة العقود
+            </Link>
+            {user.role === 'admin' ? (
+              <Link to="/admin/analytics" className="secondary-button">
+                فتح الإحصائيات المتقدمة
+              </Link>
+            ) : null}
+          </div>
+        </div>
+        <div className="showcase-hero-side">
+          <div className="showcase-hero-visual" aria-hidden="true">
+            <span className="showcase-orb showcase-orb-red" />
+            <span className="showcase-orb showcase-orb-green" />
+            <span className="showcase-ring showcase-ring-one" />
+            <span className="showcase-ring showcase-ring-two" />
+            <span className="showcase-particle p1" />
+            <span className="showcase-particle p2" />
+            <span className="showcase-particle p3" />
+            <span className="showcase-particle p4" />
+            <span className="showcase-particle p5" />
+            <span className="showcase-particle p6" />
+            <span className="showcase-particle p7" />
+            <span className="showcase-particle p8" />
+          </div>
+
+          <div className="showcase-hero-stats">
+            {kpis.slice(0, 3).map((kpi) => (
+              <article key={`showcase-${kpi.id}`} className="showcase-stat-card">
+                <p>{kpi.label}</p>
+                <h4>{kpi.value.toLocaleString()}</h4>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="kpi-grid" aria-label="مؤشرات لوحة التحكم">
         {kpis.map((kpi) => (
           <article key={kpi.id} className="kpi-card">

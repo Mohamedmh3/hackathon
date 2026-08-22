@@ -322,6 +322,180 @@ a:hover {
   line-height: 1.6;
 }
 
+.showcase-hero {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  background:
+    radial-gradient(circle at top left, rgba(206, 17, 38, 0.14), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(0, 122, 61, 0.14), transparent 45%),
+    var(--surface);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.showcase-hero-content {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.showcase-hero-eyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sy-green-dark);
+  font-weight: 700;
+}
+
+.showcase-hero-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.5vw, 1.9rem);
+  line-height: 1.25;
+}
+
+.showcase-hero-description {
+  margin: 0;
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+.showcase-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+
+.showcase-hero-side {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.showcase-hero-visual {
+  position: relative;
+  min-height: 150px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(206, 17, 38, 0.26), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 122, 61, 0.25), transparent 40%),
+    linear-gradient(135deg, rgba(13, 13, 13, 0.85), rgba(13, 13, 13, 0.6));
+}
+
+.showcase-orb,
+.showcase-ring,
+.showcase-particle {
+  position: absolute;
+}
+
+.showcase-orb {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: 0.7;
+  animation: heroPulse 5.8s ease-in-out infinite alternate;
+}
+
+.showcase-orb-red {
+  background: rgba(206, 17, 38, 0.7);
+  top: -25px;
+  left: -15px;
+}
+
+.showcase-orb-green {
+  background: rgba(0, 122, 61, 0.68);
+  bottom: -35px;
+  right: -10px;
+  animation-delay: 1.2s;
+}
+
+.showcase-ring {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  animation: heroSpin 18s linear infinite;
+}
+
+.showcase-ring-one {
+  width: 140px;
+  height: 140px;
+  top: 12px;
+  left: 32%;
+}
+
+.showcase-ring-two {
+  width: 80px;
+  height: 80px;
+  top: 42px;
+  left: 42%;
+  animation-direction: reverse;
+  animation-duration: 12s;
+}
+
+.showcase-particle {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
+  animation: heroFloat 7s ease-in-out infinite;
+}
+
+.showcase-particle.p1 { top: 22px; left: 22px; animation-delay: 0.1s; }
+.showcase-particle.p2 { top: 30px; left: 62%; animation-delay: 0.9s; }
+.showcase-particle.p3 { top: 68px; left: 45%; animation-delay: 1.7s; }
+.showcase-particle.p4 { top: 112px; left: 70%; animation-delay: 2.5s; }
+.showcase-particle.p5 { top: 88px; left: 15%; animation-delay: 3.2s; }
+.showcase-particle.p6 { top: 50px; left: 82%; animation-delay: 4s; }
+.showcase-particle.p7 { top: 124px; left: 52%; animation-delay: 4.7s; }
+.showcase-particle.p8 { top: 18px; left: 88%; animation-delay: 5.4s; }
+
+.showcase-hero-stats {
+  display: grid;
+  gap: 0.65rem;
+  align-content: center;
+}
+
+.showcase-stat-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius);
+  padding: 0.85rem;
+}
+
+.showcase-stat-card p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.showcase-stat-card h4 {
+  margin: 0.2rem 0 0;
+  font-size: 1.4rem;
+}
+
+@keyframes heroFloat {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+  50% { transform: translateY(-11px) translateX(3px); opacity: 1; }
+  100% { transform: translateY(0px) translateX(-2px); opacity: 0.35; }
+}
+
+@keyframes heroPulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.12); opacity: 0.78; }
+}
+
+@keyframes heroSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* ── Cards & panels ── */
 
 .quick-links-grid {
@@ -1101,6 +1275,10 @@ a:hover {
   }
 
   .status-change-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-hero {
     grid-template-columns: 1fr;
   }
 
