@@ -1,16 +1,20 @@
 {
   "servers": {
     "github": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_PERSONAL_ACCESS_TOKEN}" }
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp"
     },
     "supabase": {
-      "type": "stdio",
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp?project_ref=frqlzzhkimvtlhnitlkc"
+    },
+    "playwright": {
       "command": "npx",
-      "args": ["-y", "@supabase/mcp-server-supabase@latest", "--project-ref=${env:SUPABASE_PROJECT_REF}"],
-      "env": { "SUPABASE_ACCESS_TOKEN": "${env:SUPABASE_ACCESS_TOKEN}" }
+      "args": ["-y", "@playwright/mcp@latest"]
+    },
+     "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
     }
   }
 }
